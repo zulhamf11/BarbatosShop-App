@@ -10,7 +10,7 @@
                     <div class="card-body">
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
-
+                            {{-- Name --}}
                             <div class="row mb-3">
                                 <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
 
@@ -26,7 +26,7 @@
                                     @enderror
                                 </div>
                             </div>
-
+                            {{-- Email --}}
                             <div class="row mb-3">
                                 <label for="email"
                                     class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
@@ -43,7 +43,7 @@
                                     @enderror
                                 </div>
                             </div>
-
+                            {{-- Password --}}
                             <div class="row mb-3">
                                 <label for="password"
                                     class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
@@ -60,7 +60,7 @@
                                     @enderror
                                 </div>
                             </div>
-
+                            {{-- Confirm Password --}}
                             <div class="row mb-3">
                                 <label for="password-confirm"
                                     class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
@@ -70,18 +70,55 @@
                                         name="password_confirmation" required autocomplete="new-password">
                                 </div>
                             </div>
+                            {{-- Gender --}}
+                            {{-- <div class="row mb-3">
+                                <label for="gender"
+                                    class="col-md-4 col-form-label text-md-end">{{ __('Gender') }}</label>
 
-                            <div class="row mb-0">
-                                <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('Register') }}
-                                    </button>
+                                <div class="col-md-6">
+                                    <input id="gender" type="text"
+                                        class="form-control @error('gender') is-invalid @enderror" name="gender"
+                                        value="{{ old('gender') }}" required autocomplete="gender" autofocus>
+
+                                    @error('gender')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>must be field</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div> --}}
+                            <div class="row mb-3">
+                                <label for="form-check"
+                                    class="col-md-4 col-form-label text-md-end">{{ __('Gender') }}</label>
+
+                                <div class="col-md-6">
+                                    <div class="form-check">
+                                        <input type="radio" class="form-check-input" id="male" name="gender[]"
+                                            value="Male">Male
+
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" class="form-check-input" id="female" name="gender[]"
+                                            value="Female">Female
+
+                                    </div>
                                 </div>
                             </div>
-                        </form>
+
+
                     </div>
+
+                    <div class="row mb-0">
+                        <div class="col-md-6 offset-md-4">
+                            <button type="submit" class="btn btn-primary">
+                                {{ __('Register') }}
+                            </button>
+                        </div>
+                    </div>
+                    </form>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 @endsection
