@@ -19,8 +19,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @livewireStyles
 </head>
-
 
 <body>
     <div id="app">
@@ -28,6 +28,9 @@
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/home') }}">
                     Home
+                </a>
+                <a class="navbar-brand" href="{{ url('/products') }}">
+                    Product
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"

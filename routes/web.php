@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Livewire\Product;
+use App\Http\Livewire\Products;
 use App\Http\Livewire\Cart;
 
 /*
@@ -22,6 +22,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::group(['middleware'=>['auth']], function() {
+    Route::get('/products', Products::class);
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     
 });
