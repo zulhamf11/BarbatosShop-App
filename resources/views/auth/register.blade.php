@@ -1,21 +1,19 @@
-@extends('layouts.app')
-
+@extends('layouts.apps')
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ __('Register') }}</div>
+    <div class="signup-form">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-md-4 mb-5" style="margin-top: 50px; margin-bottom: auto;">
+                    <div class="card">
+                        <h4 class="card-header text-center">Register</h4>
+                        <div class="card-body">
+                            <form method="POST" action="{{ route('register') }}">
+                                @csrf
 
-                    <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}">
-                            @csrf
-                            {{-- Name --}}
-                            <div class="row mb-3">
-                                <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="name" type="text"
+                                {{-- Name --}}
+                                <div class="form-group mb-3">
+                                    <label for="name" class="mb-2"> Name </label>
+                                    <input type="text" placeholder="Enter Your Name" id="name"
                                         class="form-control @error('name') is-invalid @enderror" name="name"
                                         value="{{ old('name') }}" required autocomplete="name" autofocus>
 
@@ -25,14 +23,10 @@
                                         </span>
                                     @enderror
                                 </div>
-                            </div>
-                            {{-- Email --}}
-                            <div class="row mb-3">
-                                <label for="email"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="email" type="email"
+                                {{-- Email --}}
+                                <div class="form-group mb-3">
+                                    <label class="mb-2"> Email </label>
+                                    <input type="email" placeholder="Enter Your Email" id="email"
                                         class="form-control @error('email') is-invalid @enderror" name="email"
                                         value="{{ old('email') }}" required autocomplete="email">
 
@@ -42,14 +36,10 @@
                                         </span>
                                     @enderror
                                 </div>
-                            </div>
-                            {{-- Password --}}
-                            <div class="row mb-3">
-                                <label for="password"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="password" type="password"
+                                {{-- Password --}}
+                                <div class="form-group mb-3">
+                                    <label class="mb-2"> Password </label>
+                                    <input type="password" placeholder="Enter Your Password" id="password"
                                         class="form-control @error('password') is-invalid @enderror" name="password"
                                         required autocomplete="new-password">
 
@@ -58,69 +48,51 @@
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
+                                    {{-- Confirm Password --}}
                                 </div>
-                            </div>
-                            {{-- Confirm Password --}}
-                            <div class="row mb-3">
-                                <label for="password-confirm"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="password-confirm" type="password" class="form-control"
-                                        name="password_confirmation" required autocomplete="new-password">
+                                <div class="form-group mb-3">
+                                    <label class="mb-2"> Confirm Password </label>
+                                    <input type="password" placeholder="Confirm Your Password" id="password-confirm"
+                                        class="form-control" name="password_confirmation" required
+                                        autocomplete="new-password">
                                 </div>
-                            </div>
-                            {{-- Gender --}}
-                            {{-- <div class="row mb-3">
-                                <label for="gender"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Gender') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="gender" type="text"
-                                        class="form-control @error('gender') is-invalid @enderror" name="gender"
-                                        value="{{ old('gender') }}" required autocomplete="gender" autofocus>
-
-                                    @error('gender')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>must be field</strong>
-                                        </span>
-                                    @enderror
+                                {{-- Gender --}}
+                                <div class="form-group mb-3">
+                                    <label class="mb-2"> Gender </label><br>
+                                    <input type="radio" id="male" name="gender" value="male">
+                                    <label for="male">Male</label><br>
+                                    <input type="radio" id="female" name="gender" value="female">
+                                    <label for="female">Female</label><br>
+                                    <span class="text-danger"></span>
                                 </div>
-                            </div> --}}
-                            <div class="row mb-3">
-                                <label for="form-check"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Gender') }}</label>
-
-                                <div class="col-md-6">
-                                    <div class="form-check">
-                                        <input type="radio" class="form-check-input" id="male" name="gender[]"
-                                            value="Male">Male
-
-                                    </div>
-                                    <div class="form-check">
-                                        <input type="radio" class="form-check-input" id="female" name="gender[]"
-                                            value="Female">Female
-
-                                    </div>
+                                {{-- Date of birth --}}
+                                <div class="form-group mb-3">
+                                    <label class="mb-2"> Date of Birth </label>
+                                    <input value="{{ old('date_of_birth', date('mm/dd/yyyy')) }}" type="date"
+                                        class="form-control" name="date_of_birth" value="date_of_birth" id="date_of_birth">
+                                    <span class="text-danger"></span>
                                 </div>
-                            </div>
-
-
-
-
-                    </div>
-
-                    <div class="row mb-0">
-                        <div class="col-md-6 offset-md-4">
-                            <button type="submit" class="btn btn-primary">
-                                {{ __('Register') }}
-                            </button>
+                                <div class="form-group mb-3">
+                                    <label class="mb-2"> Country </label>
+                                    <select class="form-select form-select-sm" name="country_id" id="country_id">
+                                        <option selected hidden disabled value="">Choose a country</option>
+                                        <option value="" selected>
+                                        </option>
+                                        <option value=""></option>
+                                    </select>
+                                    <span class="text-danger"></span>
+                                </div>
+                                <div class="d-grid mx-auto">
+                                    <button type="submit" class="btn btn-dark btn-block">Register</button>
+                                </div>
+                                <div class="form-group mb-2 mt-3">
+                                    Have an account? <u><a href="{{ route('login') }}">Login Here</a></u>
+                                </div>
+                            </form>
                         </div>
                     </div>
-                    </form>
                 </div>
             </div>
         </div>
     </div>
-    </div>
-@endsection
+@endsection()
