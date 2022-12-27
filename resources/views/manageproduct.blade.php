@@ -2,8 +2,13 @@
 
 @section('content')
     <div class="container">
-        <button type="button" class="btn btn-success">Add +</button>
+        <a href="/addproduct" type="button" class="btn btn-success">Add +</a>
         <div class="row">
+            @if ($message = Session::get('success'))
+                <div class="alert alert-success" role="alert">
+                    {{ $message }}
+                </div>
+            @endif
             <table class="table">
                 <thead>
                     <tr>
@@ -26,8 +31,9 @@
                             <td>{{ $product->price }}</td>
                             <td>{{ $product->detail }}</td>
                             <td>
-                                <button type="button" class="btn btn-danger">Delete</button>
-                                <button type="button" class="btn btn-info">Edit</button>
+                                <a href="/showproduct/{{ $product->id }}" type="button" class="btn btn-info">Edit</a>
+                                <a href="/deleteproduct/{{ $product->id }}" type="button"
+                                    class="btn btn-danger">Delete</a>
                             </td>
 
                         </tr>

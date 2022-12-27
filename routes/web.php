@@ -25,6 +25,10 @@ Route::get('/', function () {
 Route::get('/manageproduct', [ProductsController::class, 'index'])->name('manageproduct');
 Route::get('/addproduct', [ProductsController::class, 'addproduct'])->name('addproduct');
 Route::post('/insertproduct', [ProductsController::class, 'insertproduct'])->name('insertproduct');
+Route::get('/showproduct/{id}', [ProductsController::class, 'showproduct'])->name('showproduct');
+Route::post('/updateproduct/{id}', [ProductsController::class, 'updateproduct'])->name('updateproduct');
+Route::get('/deleteproduct/{id}', [ProductsController::class, 'deleteproduct'])->name('deleteproduct');
+
 Auth::routes();
 
 Route::group(['middleware'=>['auth']], function() {
