@@ -1,8 +1,11 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Livewire\Products;
 use App\Http\Livewire\Cart;
+use App\Http\Livewire\Products;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +22,9 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/manageproduct', [ProductsController::class, 'index'])->name('manageproduct');
+Route::get('/addproduct', [ProductsController::class, 'addproduct'])->name('addproduct');
+Route::post('/insertproduct', [ProductsController::class, 'insertproduct'])->name('insertproduct');
 Auth::routes();
 
 Route::group(['middleware'=>['auth']], function() {
