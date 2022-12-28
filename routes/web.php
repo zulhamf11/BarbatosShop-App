@@ -21,18 +21,19 @@ use App\Http\Controllers\ProductsController;
 
 Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 
-Route::get('/manageproduct', [ProductsController::class, 'index'])->name('manageproduct');
-Route::get('/addproduct', [ProductsController::class, 'addproduct'])->name('addproduct');
-Route::post('/insertproduct', [ProductsController::class, 'insertproduct'])->name('insertproduct');
-Route::get('/showproduct/{id}', [ProductsController::class, 'showproduct'])->name('showproduct');
-Route::post('/updateproduct/{id}', [ProductsController::class, 'updateproduct'])->name('updateproduct');
-Route::get('/deleteproduct/{id}', [ProductsController::class, 'deleteproduct'])->name('deleteproduct');
+
 
 Auth::routes();
 
-Route::group(['middleware'=>['auth']], function() {
-    Route::get('/products', Products::class);
+Route::group(['middleware'=>['auth', 'hakakses:admin']], function() {
+    // Route::get('/products', Products::class);
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/manageproduct', [ProductsController::class, 'index'])->name('manageproduct');
+    Route::get('/addproduct', [ProductsController::class, 'addproduct'])->name('addproduct');
+    Route::post('/insertproduct', [ProductsController::class, 'insertproduct'])->name('insertproduct');
+    Route::get('/showproduct/{id}', [ProductsController::class, 'showproduct'])->name('showproduct');
+    Route::post('/updateproduct/{id}', [ProductsController::class, 'updateproduct'])->name('updateproduct');
+    Route::get('/deleteproduct/{id}', [ProductsController::class, 'deleteproduct'])->name('deleteproduct');
     
 });
 

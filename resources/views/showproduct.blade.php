@@ -5,7 +5,7 @@
         <div class="row justify-content-center mt-5 mb-5">
             <div class="col-md-7">
                 <div class="mb-2">
-                    <a href="#" style="text-decoration: none;">
+                    <a href="{{ route('manageproduct') }}" style="text-decoration: none;">
                         <button type="button" class="btn btn-secondary">
                             <i style="color:white" class="fas fa-arrow-circle-left"></i> Back
                         </button>

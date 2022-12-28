@@ -9,9 +9,14 @@ use App\Http\Controllers\Controller;
 class WelcomeController extends Controller
 {
     //
-    public function index()
+    public function index(Request $request)
     {
-        $data = Products::all();
-        return view('home', compact('data'));
+        if($request->has('Search')){
+            $data = Products::where('price', 'LIKE', '%'.$request->Search.'%');
+        } else {
+            $data = Products::all();
+        }
+       
+        return view('welcome', compact('data'));
     }
 }
