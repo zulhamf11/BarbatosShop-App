@@ -35,7 +35,7 @@ class ProductCategory extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function product(): HasOne
+    public function products(): HasOne
     {
         return $this->hasOne(Products::class, 'id', 'product_id');
     }

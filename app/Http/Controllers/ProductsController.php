@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Products;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -29,11 +30,13 @@ class ProductsController extends Controller
     {
         //
         $data = Products::create($request->all());
+        
         if($request->hasFile('image')) {
             $request->file('image')->move('images/', $request->file('image')->getClientOriginalName());
             $data->image = $request->file('image')->getClientOriginalName();
             $data->save();
         }
+        $category = Category::create($request->all());
         return redirect()->route('manageproduct')->with('success', 'success adding product');
     }
 

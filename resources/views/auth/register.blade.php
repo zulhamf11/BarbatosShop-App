@@ -57,42 +57,44 @@
                                         autocomplete="new-password">
                                 </div>
                                 {{-- Gender --}}
-                                {{-- <div class="form-group mb-3">
+                                <div class="form-group mb-3">
                                     <label class="mb-2"> Gender </label><br>
                                     <input type="radio" id="male" name="gender" value="male">
                                     <label for="male">Male</label><br>
                                     <input type="radio" id="female" name="gender" value="female">
                                     <label for="female">Female</label><br>
                                     <span class="text-danger"></span>
-                                </div> --}}
+                                </div>
                                 {{-- Date of birth --}}
-                                {{-- <div class="form-group mb-3">
+                                <div class="form-group mb-3">
                                     <label class="mb-2"> Date of Birth </label>
                                     <input value="{{ old('date_of_birth', date('mm/dd/yyyy')) }}" type="date"
                                         class="form-control" name="date_of_birth" value="date_of_birth" id="date_of_birth">
                                     <span class="text-danger"></span>
                                 </div>
+                                {{-- Country --}}
                                 <div class="form-group mb-3">
                                     <label class="mb-2"> Country </label>
-                                    <select class="form-select form-select-sm" name="country_id" id="country_id">
+                                    <select class="form-select form-select-sm" name="country" id="country">
                                         <option selected hidden disabled value="">Choose a country</option>
-                                        <option value="" selected>
+                                        <option value="Indonesia"> Indonesia
                                         </option>
-                                        <option value=""></option>
+                                        <option value="Indonesia">Malaysia</option>
                                     </select>
                                     <span class="text-danger"></span>
                                 </div>
-                                <div class="d-grid mx-auto"> --}}
-                                <button type="submit" class="btn btn-dark btn-block">Register</button>
+
+                                <div class="d-grid mx-auto">
+                                    <button type="submit" class="btn btn-dark btn-block">Register</button>
+                                </div>
+                                <div class="form-group mb-2 mt-3">
+                                    Have an account? <u><a href="{{ route('login') }}">Login Here</a></u>
+                                </div>
+                            </form>
                         </div>
-                        <div class="form-group mb-2 mt-3">
-                            Have an account? <u><a href="{{ route('login') }}">Login Here</a></u>
-                        </div>
-                        </form>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 @endsection()

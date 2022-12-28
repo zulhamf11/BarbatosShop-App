@@ -37,7 +37,7 @@
                             Category
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="{{ route('product_category', 1) }}">Action</a></li>
                             <li><a class="dropdown-item" href="#">Another action</a></li>
                             <li>
                                 <hr class="dropdown-divider">
@@ -47,7 +47,8 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav mb-2 mb-lg-0">
-                    <a class="collapse navbar-collapse" href="{{ route('manageproduct') }}">Manage Product</a>
+                    <a class="nav-link active" aria-current="page" href="{{ route('manageproduct') }}">Manage
+                        Product</a>
                 </ul>
                 <ul class="navbar-nav mb-2 mb-lg-0" style="margin-left: auto;">
                     <!-- Authentication Links -->
@@ -71,6 +72,10 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+
+                                <a class="dropdown-item" href="{{ route('profil') }}">Profile</a>
+
+
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                                                                                       document.getElementById('logout-form').submit();">
