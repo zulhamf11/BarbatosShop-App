@@ -24,15 +24,15 @@
                                     <span class="text-danger"></span>
                                 </div>
                             </div>
-                            {{-- <div class="form-group mb-3">
+                            <div class="form-group mb-3">
                                 <label for="category" class="form-label">Category</label>
-                                <select class="form-select" aria-label="Default select example" name="category">
+                                <select class="form-select" aria-label="Default select example" name="category_name">
                                     <option selected hidden disabled value="">Select a Category</option>
-                                    <option value="a"> a</option>
+                                    <option value="a">a</option>
                                     <option value="b">b </option>
                                 </select>
                                 <span class="text-danger"></span>
-                            </div> --}}
+                            </div>
                             <div class="mb-3">
                                 <label for="description" class="form-label">Detail</label>
                                 <textarea class="form-control" id="description" rows="7" name="detail">{{ $data->detail }}</textarea>

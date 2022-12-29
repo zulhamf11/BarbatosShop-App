@@ -20,7 +20,7 @@
         @foreach ($data as $product)
             <div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-4 container-body">
                 <div class="col">
-                    <a class="card-link" href="">
+                    <a class="card-link" href="{{ route('detail', $product->id) }}">
                         <div class="card h-100">
                             <img src="{{ asset('images/' . $product->image) }}" class="card-img-top" alt="...">
                             <div class="card-body">

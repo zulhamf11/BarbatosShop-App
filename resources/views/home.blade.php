@@ -17,21 +17,25 @@
             <h5></h5>
             <a href="#">View All</a>
         </div>
-        @foreach ($data as $product)
-            <div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-4 container-body">
-                <div class="col">
-                    <a class="card-link" href="">
-                        <div class="card h-100">
-                            <img src="{{ asset('images/' . $product->image) }}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ $product->product_name }}</h5>
-                                <p class="card-text">IDR {{ $product->price }}</p>
+
+        <div class="row">
+            @foreach ($data as $product)
+                <div class="col-md-3 col-sm-12 mb-3">
+                    <div class="card" style="width: 18rem;">
+                        <a class="card-link" href="{{ route('detail', $product->id) }}">
+                            <div class="card h-100">
+                                <img src="{{ asset('images/' . $product->image) }}" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $product->product_name }}</h5>
+                                    <p class="card-text">IDR {{ $product->price }}</p>
+                                </div>
                             </div>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
                 </div>
-            </div>
-        @endforeach
+            @endforeach
+        </div>
+
 
     </div>
 @endsection
