@@ -41,7 +41,7 @@
                             </div>
                         </div>
                     @endforeach
-                    <a class="btn btn-primary mt-4" href="">
+                    <a type="button" class="btn btn-primary mt-4" href="{{ route('summary') }}">
                         Purchase
                     </a>
 

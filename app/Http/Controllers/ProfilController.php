@@ -14,4 +14,10 @@ class ProfilController extends Controller
         $data = User::all();
         return view('profile', compact('data'));
     }
+
+    public function index2()
+    {
+        $data = User::all();
+        return view('profileadmin', compact('data'));
+    }
 }

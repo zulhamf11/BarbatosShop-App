@@ -14,4 +14,10 @@ class DetailGuestController extends Controller
 
         return view('detailproductguest', compact('data'));
     }
+
+    public function index2($id){
+        $data = Products::where('id', $id)->first();
+
+        return view('detailproductguest2', compact('data'));
+    }
 }

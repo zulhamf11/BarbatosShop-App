@@ -8,6 +8,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DetailController;
 use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\SummaryController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeUserController;
@@ -28,6 +29,7 @@ use App\Http\Controllers\DetailGuestController;
 Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 Route::get('/product_category/{category}', [CategoryController::class, 'Category'])->name('product_category');
 Route::get('/detailProduct/{id}', [DetailGuestController::class, 'index'])->name('detailProduct');
+Route::get('/detailProducts/{id}', [DetailGuestController::class, 'index2'])->name('detailProducts');
 // Route::group(['middleware'=>['auth', 'hakakses:user,admin']], function() {
 
 // });
@@ -35,6 +37,7 @@ Auth::routes();
 
 Route::group(['middleware'=>['auth', 'hakakses:user,admin']], function() {
     Route::get('/profile', [ProfilController::class, 'index'])->name('profile');
+    Route::get('/profileadmin', [ProfilController::class, 'index2'])->name('profileadmin');
 });
 
 Route::group(['middleware'=>['auth', 'hakakses:user']], function() {
@@ -42,10 +45,10 @@ Route::group(['middleware'=>['auth', 'hakakses:user']], function() {
     Route::get('/detail/{id}', [DetailController::class, 'index'])->name('detail');
     Route::post('/order/{id}', [DetailController::class, 'order'])->name('order');
     Route::get('/cart', [CartController::class, 'cart'])->name('cart');
+    Route::get('/summary', [SummaryController::class, 'summary'])->name('summary');
 });
 
 Route::group(['middleware'=>['auth', 'hakakses:admin']], function() {
-    // Route::get('/products', Products::class);
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/manageproduct', [ProductsController::class, 'index'])->name('manageproduct');
     Route::get('/addproduct', [ProductsController::class, 'addproduct'])->name('addproduct');
