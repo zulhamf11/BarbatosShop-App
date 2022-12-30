@@ -8,6 +8,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DetailController;
 use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\SummaryController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\CategoryController;
@@ -27,6 +28,7 @@ use App\Http\Controllers\DetailGuestController;
 */
 
 Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
+Route::get('/searchGuest', [SearchController::class, 'searchGuest'])->name('searchGuest');
 Route::get('/product_category/{category}', [CategoryController::class, 'Category'])->name('product_category');
 Route::get('/detailProduct/{id}', [DetailGuestController::class, 'index'])->name('detailProduct');
 Route::get('/detailProducts/{id}', [DetailGuestController::class, 'index2'])->name('detailProducts');
@@ -42,6 +44,7 @@ Route::group(['middleware'=>['auth', 'hakakses:user,admin']], function() {
 
 Route::group(['middleware'=>['auth', 'hakakses:user']], function() {
     Route::get('/UserHome', [HomeUserController::class, 'homeuser'])->name('UserHome');
+    Route::get('/searchUserHome', [SearchController::class, 'searchUserHome'])->name('searchUserHome');
     Route::get('/detail/{id}', [DetailController::class, 'index'])->name('detail');
     Route::post('/order/{id}', [DetailController::class, 'order'])->name('order');
     Route::get('/cart', [CartController::class, 'cart'])->name('cart');
@@ -51,6 +54,7 @@ Route::group(['middleware'=>['auth', 'hakakses:user']], function() {
 
 Route::group(['middleware'=>['auth', 'hakakses:admin']], function() {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/search', [SearchController::class, 'searchHome'])->name('search');
     Route::get('/manageproduct', [ProductsController::class, 'index'])->name('manageproduct');
     Route::get('/addproduct', [ProductsController::class, 'addproduct'])->name('addproduct');
     Route::post('/insertproduct', [ProductsController::class, 'insertproduct'])->name('insertproduct');

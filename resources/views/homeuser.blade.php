@@ -1,14 +1,14 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="col-md-10 col-lg-10 col-15 mt-5 mx-auto my-auto search-box">
-        <div class="input-group form-container">
-            <input type="text" name="Search" class="form-control search-input" autofocus="autofocus" autocomplete="off">
-            <span class="input-group-btn" style="background-color: rgb(114, 113, 113); border: none;">
-                <button class="btn btn-search">
-                    <img src="{{ asset('images/search.png.png') }}" width="20">
-                </button>
-            </span>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <form action="/searchUserHome">
+                <div class="input-group mb-3 mt-4">
+                    <input type="text" class="form-control" placeholder="Search.." name="search">
+                    <button class="btn btn-danger" type="submit"><i class="fa fa-search"></i></button>
+                </div>
+            </form>
         </div>
     </div>
 
