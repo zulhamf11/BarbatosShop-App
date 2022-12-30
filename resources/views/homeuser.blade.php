@@ -1,4 +1,4 @@
-@extends('layouts.apps')
+@extends('layouts.main')
 
 @section('content')
     <div class="col-md-10 col-lg-10 col-15 mt-5 mx-auto my-auto search-box">
@@ -18,12 +18,11 @@
             <a href="#">View All</a>
         </div>
 
-
         <div class="row">
             @foreach ($data as $product)
                 <div class="col-md-3 col-sm-12 mb-3">
                     <div class="card" style="width: 18rem;">
-                        <a class="card-link" href="{{ route('detailProduct', $product->id) }}">
+                        <a class="card-link" href="{{ route('detail', $product->id) }}">
                             <div class="card h-100">
                                 <img src="{{ asset('images/' . $product->image) }}" class="card-img-top" alt="...">
                                 <div class="card-body">

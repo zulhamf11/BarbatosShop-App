@@ -19,6 +19,12 @@ class DetailController extends Controller
         return view('detailproduct', compact('data'));
     }
 
+    public function detailProduct($id){
+        $data = Products::where('id', $id)->first();
+
+        return view('detailproductguest', compact('data'));
+    }
+
     public function order(Request $request, $id) {
         $data = Products::where('id', $id)->first();
         $date = Carbon::now();
@@ -70,4 +76,6 @@ class DetailController extends Controller
 
 
     }
+
+
 }

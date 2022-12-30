@@ -9,7 +9,9 @@ use App\Http\Controllers\DetailController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\HomeUserController;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\DetailGuestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,10 +26,21 @@ use App\Http\Controllers\ProductsController;
 
 Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 Route::get('/product_category/{category}', [CategoryController::class, 'Category'])->name('product_category');
-Route::get('/profile', [ProfilController::class, 'index'])->name('profile');
-Route::get('/detail/{id}', [DetailController::class, 'index'])->name('detail');
-Route::post('/order/{id}', [DetailController::class, 'order'])->name('order');
+Route::get('/detailProduct/{id}', [DetailGuestController::class, 'index'])->name('detailProduct');
+// Route::group(['middleware'=>['auth', 'hakakses:user,admin']], function() {
+
+// });
 Auth::routes();
+
+Route::group(['middleware'=>['auth', 'hakakses:user,admin']], function() {
+    Route::get('/profile', [ProfilController::class, 'index'])->name('profile');
+});
+
+Route::group(['middleware'=>['auth', 'hakakses:user']], function() {
+    Route::get('/UserHome', [HomeUserController::class, 'homeuser'])->name('UserHome');
+    Route::get('/detail/{id}', [DetailController::class, 'index'])->name('detail');
+    Route::post('/order/{id}', [DetailController::class, 'order'])->name('order');
+});
 
 Route::group(['middleware'=>['auth', 'hakakses:admin']], function() {
     // Route::get('/products', Products::class);

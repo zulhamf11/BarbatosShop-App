@@ -28,4 +28,6 @@ class HomeController extends Controller
         $data = Products::all();
         return view('home', compact('data'));
     }
+
+    
 }
