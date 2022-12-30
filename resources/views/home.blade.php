@@ -6,7 +6,7 @@
             <form action="/search">
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Search.." name="search">
-                    <button class="btn btn-danger" type="submit"><i class="fa fa-search"></i></button>
+                    <button class="btn btn-secondary" type="submit"><i class="fa fa-search"></i></button>
                 </div>
             </form>
         </div>
