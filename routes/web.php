@@ -4,6 +4,7 @@ use App\Http\Livewire\Cart;
 use App\Http\Livewire\Products;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DetailController;
 use App\Http\Controllers\ProfilController;
@@ -40,6 +41,7 @@ Route::group(['middleware'=>['auth', 'hakakses:user']], function() {
     Route::get('/UserHome', [HomeUserController::class, 'homeuser'])->name('UserHome');
     Route::get('/detail/{id}', [DetailController::class, 'index'])->name('detail');
     Route::post('/order/{id}', [DetailController::class, 'order'])->name('order');
+    Route::get('/cart', [CartController::class, 'cart'])->name('cart');
 });
 
 Route::group(['middleware'=>['auth', 'hakakses:admin']], function() {

@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('order', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
+            $table->string('product_name');
             $table->date('date');
             $table->string('status');
             $table->integer('total_price');

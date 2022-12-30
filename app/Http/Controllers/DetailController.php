@@ -35,6 +35,7 @@ class DetailController extends Controller
         if(empty($order_check)){
             $order = new Order;
             $order->user_id = Auth::user()->id;
+            $order->product_name = $data->product_name;
             $order->date = $date;
             $order->status = 0;
             $order->total_price = 0;
@@ -53,6 +54,8 @@ class DetailController extends Controller
             $detail_order = new OrderDetail;
             $detail_order->product_id = $data->id;
             $detail_order->order_id = $new_order->id;
+            $detail_order->product_name = $data->product_name;
+            $detail_order->image = $data->image;
             $detail_order->qty = $request->qty;
             $detail_order->total_price = $data->price * $request->qty;
             $detail_order->save();
@@ -72,7 +75,7 @@ class DetailController extends Controller
         $order->update();
         
 
-        return redirect('home');
+        return redirect('UserHome');
 
 
     }

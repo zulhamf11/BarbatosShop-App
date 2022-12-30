@@ -16,6 +16,7 @@
     <!-- Styles -->
     {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <title>Barbatos Shop | Home</title>
 </head>
@@ -45,6 +46,13 @@
                             <li><a class="dropdown-item" href="#">Something else here</a></li>
                         </ul>
                     </li>
+                </ul>
+
+                <ul class="navbar-nav mb-2 mb-lg-0" style="margin-left: 900px;">
+                    <a href="{{ route('cart') }}">
+                        <i class="fa fa-shopping-cart" style="font-size:36px"></i>
+                    </a>
+
                 </ul>
                 <ul class="navbar-nav mb-2 mb-lg-0" style="margin-left: auto;">
                     <!-- Authentication Links -->
