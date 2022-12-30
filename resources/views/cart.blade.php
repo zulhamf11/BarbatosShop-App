@@ -35,15 +35,12 @@
                                                 </td>
                                             </tr>
 
-                                            <tr>
-                                                <td>
-                                                    <a href="/deletecart/{{ $data->id }}" type="button"
-                                                        class="btn btn-danger">Delete</a>
-                                                </td>
-                                            </tr>
+
 
                                         </tbody>
                                     </table>
+                                    <a href="/deletecart/{{ $data->id }}" type="button"
+                                        class="btn btn-danger">Delete</a>
 
                                 </div>
                             </div>
