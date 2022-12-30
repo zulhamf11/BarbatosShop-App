@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('detail_order', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id');
             $table->integer('product_id');
             $table->string('product_name');
             $table->string('image');

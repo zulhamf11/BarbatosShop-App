@@ -38,8 +38,11 @@
                             Category
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="{{ route('product_category_guest', 1) }}">Onitsuka
+                                    Serrano</a>
+                            </li>
+                            <li><a class="dropdown-item" href="{{ route('product_category_guest', 2) }}">Onitsuka
+                                    Mexico</a>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
@@ -69,17 +72,7 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-
-
-
-
-
-                                <a class="dropdown-item" href="{{ route('profile') }}">Profile</a>
-
-
-
-
-
+                                {{-- <a class="dropdown-item" href="{{ route('profile') }}">Profile</a> --}}
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                                                                                       document.getElementById('logout-form').submit();">

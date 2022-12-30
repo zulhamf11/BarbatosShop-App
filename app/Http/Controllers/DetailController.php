@@ -52,6 +52,7 @@ class DetailController extends Controller
         
         if(empty($detail_order_check)){
             $detail_order = new OrderDetail;
+            $detail_order->user_id = Auth::user()->id;
             $detail_order->product_id = $data->id;
             $detail_order->order_id = $new_order->id;
             $detail_order->product_name = $data->product_name;

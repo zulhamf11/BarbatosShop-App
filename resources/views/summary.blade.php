@@ -8,10 +8,6 @@
                     <h5>Transaction date {{ $order->date }}</h5>
                 </div>
             </div>
-
-
-
-
             <div class="row">
                 @if ($message = Session::get('success'))
                     <div class="alert alert-success" role="alert">

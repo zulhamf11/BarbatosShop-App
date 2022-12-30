@@ -18,7 +18,6 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-
     <title>Barbatos Shop | Home</title>
 </head>
 
@@ -39,8 +38,9 @@
                             Category
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="{{ route('product_category', 1) }}">Onitsuka Serrano</a>
+                            </li>
+                            <li><a class="dropdown-item" href="{{ route('product_category', 2) }}">Onitsuka Mexico</a>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>

@@ -38,8 +38,10 @@
                             Category
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="{{ route('product_category', 1) }}">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="{{ route('product_category', 1) }}">Onitsuka Serrano</a>
+                            </li>
+                            <li><a class="dropdown-item" href="{{ route('product_category', 2) }}">Onitsuka Mexico</a>
+                            </li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>

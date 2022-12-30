@@ -15,7 +15,7 @@
     <div class="fluid-container card-container mt-4">
         <div class="row container-title d-flex align-items-center">
             <h5></h5>
-            <a href="#">View All</a>
+            <a href="{{ route('home') }}">View All</a>
         </div>
 
         <div class="row">

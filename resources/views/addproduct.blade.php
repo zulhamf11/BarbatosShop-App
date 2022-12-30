@@ -28,8 +28,8 @@
                                 <label for="category" class="form-label">Category</label>
                                 <select class="form-select" aria-label="Default select example" name="category_name">
                                     <option selected hidden disabled value="">Select a Category</option>
-                                    <option value="a">a</option>
-                                    <option value="b">b </option>
+                                    <option value="Onitsuka Serrano">Onitsuka Serrano</option>
+                                    <option value="Onitsuka Mexico">Onitsuka Mexico</option>
                                 </select>
                                 <span class="text-danger"></span>
                             </div>

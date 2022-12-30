@@ -1,14 +1,13 @@
-@extends('layouts.apps')
+@extends('layouts.main')
 @section('content')
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-4 mt-5 mb-5">
                 <div class="card">
                     <h4 class="card-header text-center">Profile</h4>
-                    @foreach ($data as $data)
-                        <div class="card-body">
 
-
+                    <div class="card-body">
+                        @foreach ($data as $data)
                             <div class="form-group mb-3">
                                 <label class="mb-2"> Name </label>
                                 <div class="value-col">
@@ -44,9 +43,9 @@
                                 </div>
 
                             </div>
+                        @endforeach
+                    </div>
 
-                        </div>
-                    @endforeach
                 </div>
             </div>
         </div>

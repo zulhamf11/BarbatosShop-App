@@ -14,4 +14,15 @@ class CategoryController extends Controller
         $data = ProductCategory::with('products')->where('category_id', $category)->get();
         return view('product_category', compact('data'));
     }
+
+    public function CategoryGuest($category) {
+        $data = ProductCategory::with('products')->where('category_id', $category)->get();
+        return view('product_category_guest', compact('data'));
+    }
+
+    public function CategoryUser($category) {
+        $data = ProductCategory::with('products')->where('category_id', $category)->get();
+        return view('product_category_user', compact('data'));
+    }
+
 }
