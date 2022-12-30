@@ -13,7 +13,7 @@
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Product name</th>
+                        <th scope="col">Product Name</th>
                         <th scope="col">Image</th>
                         <th scope="col">Price</th>
                         <th scope="col">Detail</th>
@@ -28,7 +28,7 @@
                             <td>
                                 <img src="{{ asset('images/' . $product->image) }}" alt="..." style="width: 100px;">
                             </td>
-                            <td>{{ $product->price }}</td>
+                            <td>IDR {{ number_format($product->price) }}</td>
                             <td>{{ $product->detail }}</td>
                             <td>
                                 <a href="/showproduct/{{ $product->id }}" type="button" class="btn btn-info">Edit</a>

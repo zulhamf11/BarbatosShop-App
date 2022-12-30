@@ -59,9 +59,9 @@
                                 {{-- Gender --}}
                                 <div class="form-group mb-3">
                                     <label class="mb-2"> Gender </label><br>
-                                    <input type="radio" id="male" name="gender" value="male">
+                                    <input type="radio" id="male" name="gender" value="Male">
                                     <label for="male">Male</label><br>
-                                    <input type="radio" id="female" name="gender" value="female">
+                                    <input type="radio" id="female" name="gender" value="Female">
                                     <label for="female">Female</label><br>
                                     <span class="text-danger"></span>
                                 </div>
