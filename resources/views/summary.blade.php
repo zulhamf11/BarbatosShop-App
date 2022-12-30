@@ -25,6 +25,7 @@
                             <th scope="col">Product name</th>
                             <th scope="col">Quantity</th>
                             <th scope="col">Price</th>
+
                         </tr>
                     </thead>
                     <tbody>

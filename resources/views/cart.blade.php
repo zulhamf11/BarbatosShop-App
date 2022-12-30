@@ -2,6 +2,11 @@
 
 @section('content')
     <div class="container">
+        @if ($message = Session::get('success'))
+            <div class="alert alert-success" role="alert">
+                {{ $message }}
+            </div>
+        @endif
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -30,9 +35,12 @@
                                                 </td>
                                             </tr>
 
-
-
-
+                                            <tr>
+                                                <td>
+                                                    <a href="/deletecart/{{ $data->id }}" type="button"
+                                                        class="btn btn-danger">Delete</a>
+                                                </td>
+                                            </tr>
 
                                         </tbody>
                                     </table>

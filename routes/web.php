@@ -45,6 +45,7 @@ Route::group(['middleware'=>['auth', 'hakakses:user']], function() {
     Route::get('/detail/{id}', [DetailController::class, 'index'])->name('detail');
     Route::post('/order/{id}', [DetailController::class, 'order'])->name('order');
     Route::get('/cart', [CartController::class, 'cart'])->name('cart');
+    Route::get('/deletecart/{id}', [CartController::class, 'deletecart'])->name('deletecart');
     Route::get('/summary', [SummaryController::class, 'summary'])->name('summary');
 });
 
