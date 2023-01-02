@@ -15,20 +15,19 @@
     <div class="fluid-container card-container mt-4">
         <div class="row container-title d-flex align-items-center">
             <h5></h5>
-            <a href="{{ route('home') }}">View All</a>
+
         </div>
 
         <div class="row">
             @foreach ($data as $product)
                 <div class="col-md-4 col-sm-12 mb-3">
                     <div class="card" style="width: 100%;">
-                        <a class="card-link" href="{{ route('detailProduct', $product->products->id) }}">
+                        <a class="card-link" href="{{ route('detailProduct', $product->id) }}">
                             <div class="card h-100">
-                                <img src="{{ asset('images/' . $product->products->image) }}" class="card-img-top"
-                                    alt="...">
+                                <img src="{{ asset('images/' . $product->image) }}" class="card-img-top" alt="...">
                                 <div class="card-body">
-                                    <h5 class="card-title">{{ $product->products->product_name }}</h5>
-                                    <p class="card-text">IDR {{ number_format($product->products->price) }}</p>
+                                    <h5 class="card-title">{{ $product->product_name }}</h5>
+                                    <p class="card-text">IDR {{ number_format($product->price) }}</p>
                                 </div>
                             </div>
                         </a>

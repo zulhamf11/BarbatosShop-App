@@ -15,15 +15,17 @@ class ProductsController extends Controller
     public function index()
     {
         //
+        $category = Category::all();
         $data = Products::all();
-        return view('manageproduct', compact('data'));
+        return view('manageproduct', compact('data', 'category'));
     }
 
     
     public function addproduct()
     {
         //
-        return view('addproduct');
+        $category = Category::all();
+        return view('addproduct', compact('category'));
     }
 
     public function insertproduct(Request $request)
@@ -36,13 +38,14 @@ class ProductsController extends Controller
             $data->image = $request->file('image')->getClientOriginalName();
             $data->save();
         }
-        $category = Category::create($request->all());
+        $category = Category::all();
         return redirect()->route('manageproduct')->with('success', 'success adding product');
     }
 
     public function showproduct($id){
+        $category = Category::all();
         $data = Products::find($id);
-        return view('showproduct', compact('data'));
+        return view('showproduct', compact('data', 'category'));
     }
 
     public function updateproduct(Request $request, $id){

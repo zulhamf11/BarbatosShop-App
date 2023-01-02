@@ -38,30 +38,29 @@
                             Category
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="{{ route('product_category_guest', 1) }}">Onitsuka
-                                    Serrano</a>
-                            </li>
-                            <li><a class="dropdown-item" href="{{ route('product_category_guest', 2) }}">Onitsuka
-                                    Mexico</a>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
+                            @foreach ($category as $item)
+                                <li><a class="dropdown-item"
+                                        href="{{ route('product_category', $item->id) }}">{{ $item->category_name }}</a>
+                                </li>
+                            @endforeach
+                            <hr class="dropdown-divider">
                     </li>
+
+                </ul>
+                </li>
                 </ul>
                 <ul class="navbar-nav mb-2 mb-lg-0" style="margin-left: auto;">
                     <!-- Authentication Links -->
                     @guest
                         @if (Route::has('login'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" href="{{ route('masuk') }}">{{ __('Login') }}</a>
                             </li>
                         @endif
 
                         @if (Route::has('register'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                <a class="nav-link" href="{{ route('daftar') }}">{{ __('Register') }}</a>
                             </li>
                         @endif
                     @else

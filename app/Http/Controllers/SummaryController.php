@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Category;
 use App\Models\Products;
 use App\Models\OrderDetail;
 use Illuminate\Http\Request;
@@ -15,7 +16,8 @@ class SummaryController extends Controller
         $data = OrderDetail::all();
         $order = Order::all();
         $produk = Products::all();
-        return view('summary', compact('data', 'order', 'produk'));
+        $category = Category::all();
+        return view('summary', compact('data', 'order', 'produk', 'category'));
     }
     
 }

@@ -25,6 +25,10 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @php
+                            $qty = 0;
+                            
+                        @endphp
                         @foreach ($data as $product)
                             <tr>
 
@@ -35,10 +39,13 @@
 
 
                             </tr>
+                            @php
+                                $qty += $product->qty;
+                            @endphp
                         @endforeach
                         <th scope="col">Total</th>
 
-                        <th scope="col">Total qty</th>
+                        <th scope="col">{{ $qty }}</th>
                         <th scope="col">IDR {{ number_format($order->total_price) }}</th>
 
                     </tbody>

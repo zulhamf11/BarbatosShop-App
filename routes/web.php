@@ -14,6 +14,7 @@ use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeUserController;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DetailGuestController;
 
 /*
@@ -29,13 +30,13 @@ use App\Http\Controllers\DetailGuestController;
 
 Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 Route::get('/searchGuest', [SearchController::class, 'searchGuest'])->name('searchGuest');
-Route::get('/product_category/{category}', [CategoryController::class, 'Category'])->name('product_category');
-Route::get('/product_category_guest/{category}', [CategoryController::class, 'CategoryGuest'])->name('product_category_guest');
-Route::get('/product_category_user/{category}', [CategoryController::class, 'CategoryUser'])->name('product_category_user');
+Route::get('/product_category/{categories}', [CategoryController::class, 'Category'])->name('product_category');
+Route::get('/product_category_guest/{categories}', [CategoryController::class, 'CategoryGuest'])->name('product_category_guest');
+Route::get('/product_category_user/{categories}', [CategoryController::class, 'CategoryUser'])->name('product_category_user');
 Route::get('/detailProduct/{id}', [DetailGuestController::class, 'index'])->name('detailProduct');
 Route::get('/detailProducts/{id}', [DetailGuestController::class, 'index2'])->name('detailProducts');
-
-
+Route::get('/masuk', [LoginController::class, 'masuk'])->name('masuk');
+Route::get('/daftar', [LoginController::class, 'daftar'])->name('daftar');
 // });
 Auth::routes();
 

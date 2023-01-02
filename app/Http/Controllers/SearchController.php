@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Products;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -15,8 +16,9 @@ class SearchController extends Controller
         } else{
             $data = Products::all();
         }
+        $category = Category::all();
 
-        return view('home', compact('data'));
+        return view('search', compact('data','category'));
 
     }
 
@@ -26,8 +28,8 @@ class SearchController extends Controller
         } else{
             $data = Products::all();
         }
-
-        return view('homeuser', compact('data'));
+        $category = Category::all();
+        return view('searchUserHome', compact('data','category'));
 
     }
 
@@ -37,8 +39,8 @@ class SearchController extends Controller
         } else{
             $data = Products::all();
         }
-
-        return view('welcome', compact('data'));
+        $category = Category::all();
+        return view('searchGuest', compact('data','category'));
 
     }
 }

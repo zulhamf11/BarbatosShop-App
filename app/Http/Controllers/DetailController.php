@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Auth;
 use Carbon\Carbon;
 use App\Models\Order;
+use App\Models\Category;
 use App\Models\Products;
 use App\Models\OrderDetail;
 use Illuminate\Http\Request;
@@ -14,15 +15,16 @@ class DetailController extends Controller
 {
     //
     public function index($id){
+        $category = Category::all();
         $data = Products::where('id', $id)->first();
 
-        return view('detailproduct', compact('data'));
+        return view('detailproduct', compact('data','category'));
     }
 
     public function detailProduct($id){
         $data = Products::where('id', $id)->first();
-
-        return view('detailproductguest', compact('data'));
+        $category = Category::all();
+        return view('detailproductguest', compact('data', 'category'));
     }
 
     public function order(Request $request, $id) {

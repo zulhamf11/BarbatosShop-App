@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Category;
 use App\Models\Products;
 use App\Models\OrderDetail;
 use Illuminate\Http\Request;
@@ -12,8 +13,9 @@ class CartController extends Controller
 {
     //
     public function cart() {
+        $category = Category::all();
         $data = OrderDetail::all();
-        return view('cart', compact('data'));
+        return view('cart', compact('data', 'category'));
     }
 
     public function deletecart($id) {

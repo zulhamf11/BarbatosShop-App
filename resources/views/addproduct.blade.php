@@ -26,10 +26,14 @@
 
                             <div class="form-group mb-3">
                                 <label for="category" class="form-label">Category</label>
-                                <select class="form-select" aria-label="Default select example" name="category_name">
+                                <select class="form-select" aria-label="Default select example" name="category_id">
                                     <option selected hidden disabled value="">Select a Category</option>
-                                    <option value="Onitsuka Serrano">Onitsuka Serrano</option>
-                                    <option value="Onitsuka Mexico">Onitsuka Mexico</option>
+                                    @foreach ($category as $item)
+                                        <option value="{{ $item->id }}">{{ $item->category_name }}</option>
+                                    @endforeach
+
+
+
                                 </select>
                                 <span class="text-danger"></span>
                             </div>

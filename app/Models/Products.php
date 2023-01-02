@@ -2,9 +2,11 @@
 
 namespace App\Models;
 
+use App\Models\Category;
 use App\Models\ProductCategory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Products extends Model
@@ -12,6 +14,7 @@ class Products extends Model
     use HasFactory;
 
     protected $fillable = [
+        'category_id',
         'product_name',
         'image',
         'price',
@@ -20,9 +23,9 @@ class Products extends Model
     
     protected $table = 'products';
 
-    public function productCategories(): HasMany
+    public function category(): BelongsTo
     {
-        return $this->hasMany(ProductCategory::class, 'product_id', 'id');
+        return $this->belongsTo(Category::class, 'category_id', 'id');
     }
 
     public function order_detail() {

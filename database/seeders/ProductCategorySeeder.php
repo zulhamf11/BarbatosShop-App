@@ -15,5 +15,6 @@ class ProductCategorySeeder extends Seeder
     public function run()
     {
         //
+        
     }
 }

@@ -1,4 +1,4 @@
-@extends('layouts.apps')
+@extends('layouts.app')
 
 @section('content')
     <div class="row justify-content-center mb-3">
@@ -14,28 +14,29 @@
 
     <div class="fluid-container card-container mt-4">
         <div class="row container-title d-flex align-items-center">
-            <h5></h5>
+            <h5>Search Result</h5>
 
         </div>
 
         <div class="row">
-            @foreach ($data as $product)
+            @foreach ($data as $item)
                 <div class="col-md-4 col-sm-12 mb-3">
                     <div class="card" style="width: 100%;">
-                        <a class="card-link" href="{{ route('detailProduct', $product->products->id) }}">
+                        <a class="card-link" href="{{ route('detailProduct', $item->id) }}">
                             <div class="card h-100">
-                                <img src="{{ asset('images/' . $product->products->image) }}" class="card-img-top"
-                                    alt="...">
+                                <img src="{{ asset('images/' . $item->image) }}" class="card-img-top" alt="...">
                                 <div class="card-body">
-                                    <h5 class="card-title">{{ $product->products->product_name }}</h5>
-                                    <p class="card-text">IDR {{ number_format($product->products->price) }}</p>
+                                    <h5 class="card-title">{{ $item->product_name }}</h5>
+                                    <p class="card-text">IDR {{ number_format($item->price) }}</p>
                                 </div>
                             </div>
                         </a>
                     </div>
                 </div>
             @endforeach
+
         </div>
+
 
 
     </div>
