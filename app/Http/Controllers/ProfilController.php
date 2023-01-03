@@ -20,7 +20,8 @@ class ProfilController extends Controller
 
     public function index2()
     {
-        $data = User::all();
-        return view('profileadmin', compact('data'));
+        $category = Category::all();
+        $data = User::where('email', Auth::user()->email)->first();
+        return view('profile', compact('data','category'));
     }
 }

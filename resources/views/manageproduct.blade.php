@@ -26,7 +26,7 @@
                             <th scope="row">{{ $product->id }}</th>
                             <td>{{ $product->product_name }}</td>
                             <td>
-                                <img src="{{ asset('images/' . $product->image) }}" alt="..." style="width: 100px;">
+                                <img src="{{ asset('images/' . $product->image) }}" alt="..." style="width: 250px;">
                             </td>
                             <td>IDR {{ number_format($product->price) }}</td>
                             <td>{{ $product->detail }}</td>
