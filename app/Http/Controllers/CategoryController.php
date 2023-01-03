@@ -22,14 +22,14 @@ class CategoryController extends Controller
         $category = Category::all();
         $data = Products::where('category_id', $categories)->get();
     
-        return view('product_category', compact('data','category'));
+        return view('product_category_guest', compact('data','category'));
     }
 
     public function CategoryUser($categories) {
         $category = Category::all();
         $data = Products::where('category_id', $categories)->get();
     
-        return view('product_category', compact('data','category'));
+        return view('product_category_user', compact('data','category'));
 
     }
 }
