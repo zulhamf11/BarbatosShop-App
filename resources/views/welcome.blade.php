@@ -15,7 +15,7 @@
         <div class="fluid-container card-container mt-4">
             <div class="row container-title d-flex align-items-center">
                 <h5>{{ $categories->category_name }}</h5>
-                <a href="{{ route('product_category', $categories->id) }}">View All</a>
+                <a href="{{ route('product_category_guest', $categories->id) }}">View All</a>
             </div>
 
             <div class="row">

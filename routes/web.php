@@ -30,10 +30,9 @@ use App\Http\Controllers\DetailGuestController;
 
 Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 Route::get('/searchGuest', [SearchController::class, 'searchGuest'])->name('searchGuest');
-Route::get('/product_category/{categories}', [CategoryController::class, 'Category'])->name('product_category');
+
 Route::get('/product_category_guest/{categories}', [CategoryController::class, 'CategoryGuest'])->name('product_category_guest');
-Route::get('/product_category_user/{categories}', [CategoryController::class, 'CategoryUser'])->name('product_category_user');
-Route::get('/detailProduct/{id}', [DetailGuestController::class, 'index'])->name('detailProduct');
+
 Route::get('/detailProducts/{id}', [DetailGuestController::class, 'index2'])->name('detailProducts');
 Route::get('/masuk', [LoginController::class, 'masuk'])->name('masuk');
 Route::get('/daftar', [LoginController::class, 'daftar'])->name('daftar');
@@ -51,6 +50,7 @@ Route::group(['middleware'=>['auth', 'hakakses:user']], function() {
     Route::get('/detail/{id}', [DetailController::class, 'index'])->name('detail');
     Route::post('/order/{id}', [DetailController::class, 'order'])->name('order');
     Route::get('/cart', [CartController::class, 'cart'])->name('cart');
+    Route::get('/product_category_user/{categories}', [CategoryController::class, 'CategoryUser'])->name('product_category_user');
     Route::get('/deletecart/{id}', [CartController::class, 'deletecart'])->name('deletecart');
     Route::get('/summary', [SummaryController::class, 'summary'])->name('summary');
 });
@@ -62,6 +62,10 @@ Route::group(['middleware'=>['auth', 'hakakses:admin']], function() {
     Route::get('/addproduct', [ProductsController::class, 'addproduct'])->name('addproduct');
     Route::post('/insertproduct', [ProductsController::class, 'insertproduct'])->name('insertproduct');
     Route::get('/showproduct/{id}', [ProductsController::class, 'showproduct'])->name('showproduct');
+    
+    Route::get('/detailProduct/{id}', [DetailGuestController::class, 'index'])->name('detailProduct');
+    
+    Route::get('/product_category/{categories}', [CategoryController::class, 'Category'])->name('product_category');
     Route::post('/updateproduct/{id}', [ProductsController::class, 'updateproduct'])->name('updateproduct');
     Route::get('/deleteproduct/{id}', [ProductsController::class, 'deleteproduct'])->name('deleteproduct');
     

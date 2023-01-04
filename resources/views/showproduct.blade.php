@@ -1,4 +1,4 @@
-@extends('layouts.apps')
+@extends('layouts.app')
 
 @section('content')
     <div class="container" style="width: 100%;">
@@ -28,8 +28,9 @@
                                 <label for="category" class="form-label">Category</label>
                                 <select class="form-select" aria-label="Default select example" name="category_name">
                                     <option selected hidden disabled value="">Select a Category</option>
-                                    <option value="a">a</option>
-                                    <option value="b">b </option>
+                                    @foreach ($category as $item)
+                                        <option value="{{ $item->id }}">{{ $item->category_name }}</option>
+                                    @endforeach
                                 </select>
                                 <span class="text-danger"></span>
                             </div>

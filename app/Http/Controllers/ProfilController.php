@@ -22,6 +22,6 @@ class ProfilController extends Controller
     {
         $category = Category::all();
         $data = User::where('email', Auth::user()->email)->first();
-        return view('profile', compact('data','category'));
+        return view('profileadmin', compact('data','category'));
     }
 }
